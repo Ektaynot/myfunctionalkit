@@ -3,7 +3,7 @@ import os
 import time
 def clear():
     os.system("clear")
-cho=input("(1)PolyBar Refresh\n(2)Pacman And Pamac\n(3)Battery\n(4)Ping\n(5)Weather\n:")
+cho=input("(1)PolyBar Refresh\n(2)Pacman And Pamac\n(3)Battery\n(4)Ping\n(5)Weather\n(6)Corona Status\n(7)Speed Test\n:")
 if cho == "1":
     clear()
     os.system("sh /home/efe/.config/polybar/launch.sh")
@@ -18,7 +18,7 @@ elif cho == "2":
         if pac == "1":
             clear()
             pacin=input("What Do You Want To Install? :")
-            os.system("sudo pacman -Syyu "+pacin+)
+            os.system("sudo pacman -S "+pacin)
         elif pac == "2":
             clear()
             pacse=input("What Do You Want To Search? :")
@@ -42,15 +42,20 @@ elif cho == "2":
             clear()
             pamre=input("What Do You Want To Remove? :")
             os.system("pamac remove "+pamre)
-        elif pamc == "4":
+        elif pam == "4":
             clear()
             os.system("pamac upgrade")
 elif cho == "3":
     clear()
-    os.system("upower -i /org/freedesktop/UPower/devices/battery_BAT0")
+    os.system("upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'time to em'")
+    os.system("upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'percen'")
 elif cho == "4":
     clear()
-    os.system("ping lukesmith.xyz")
+    os.system("ping ismailefe.top")
 elif cho == "5":
     clear()
-    os.system("curl wttr.in")
+    os.system("kitty --hold --start-as fullscreen curl wttr.in")
+elif cho == "6":
+        os.system("curl 'https://corona-stats.online/tr?source=2'")
+elif cho == "7":
+    os.system("curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -")
