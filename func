@@ -6,7 +6,7 @@ def clear():
 cho=input("(1)PolyBar Refresh\n(2)Pacman And Pamac\n(3)Battery\n(4)Ping\n(5)Weather\n(6)Corona Status\n(7)Speed Test\n:")
 if cho == "1":
     clear()
-    os.system("sh /home/efe/.config/polybar/launch.sh")
+    os.system("sh ~/.config/polybar/launch.sh")
     time.sleep(0.15)
     os.system("clear")
 elif cho == "2":
